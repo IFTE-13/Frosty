@@ -17,8 +17,6 @@ function DailyForecast() {
     const { weather } = forecast;
     const { city, list } = fiveDayForecast;
 
-    console.log({ fiveDayForecast })
-
     if (!fiveDayForecast || !city || !list) {
         return <Skeleton className="h-[12rem] w-full" />;
     }
