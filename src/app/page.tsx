@@ -1,4 +1,5 @@
 import AirPolution from "@/components/AirPolution";
+import DailyForecast from "@/components/DailyForecase";
 import Navbar from "@/components/Navbar";
 import Sunset from "@/components/Sunset";
 import Temperature from "@/components/Temperature";
@@ -18,6 +19,7 @@ export default function Home() {
             <AirPolution />
             <Sunset />
             <Wind />
+            <DailyForecast />
           </div>
         </div>
       </div>
