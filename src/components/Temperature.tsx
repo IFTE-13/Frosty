@@ -57,7 +57,7 @@ function Temperature() {
         const interval = setInterval(() => {
             const localMoment = moment().utcOffset(timezone / 60);
             // custom format: 24 hour format
-            const formatedTime = localMoment.format("HH:mm:ss");
+            const formatedTime = localMoment.format("HH:mm");
             // day of the week
             const day = localMoment.format("dddd");
 
