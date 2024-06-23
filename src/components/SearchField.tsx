@@ -1,12 +1,32 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import { Button } from './ui/button'
 import { commandIcon, searchIcon } from '@/utils/icons'
 import { Command, CommandInput } from './ui/command'
+import { useGlobalContext, useGlobalContextUpdate } from '@/context/globalContext'
 
-const SearchField = () => {
+interface GeocodedItem {
+    name: string;
+    country: string;
+    state?: string;
+    lat: number;
+    lon: number;
+}
+
+function SearchField() {
+    const { geoCodedList, inputValue, handleInput } = useGlobalContext();
+    const { setActiveCityCords } = useGlobalContextUpdate();
+
+    console.log('geoCodedList:', geoCodedList);
+
+    const [hoveredIndex, setHoveredIndex] = useState<number>(0);
+
+    const getClickedCoords = (lat: number, lon: number) => {
+        setActiveCityCords([lat, lon]);
+    };
+
     return (
         <div className='search-btn'>
             <Dialog>
@@ -28,9 +48,37 @@ const SearchField = () => {
                     <Command className=" rounded-lg border shadow-md">
                         <CommandInput
                             placeholder="Type to search..."
+                            value={inputValue}
+                            onChangeCapture={handleInput}
                         />
                         <ul className='px-3 pb-2'>
                             <p className="p-2 text-sm text-muted-foreground">Suggestions</p>
+                            {geoCodedList && geoCodedList.length === 0 && (
+                                <p className="p-2 text-sm text-muted-foreground">No Results</p>
+                            )}
+
+                            {Array.isArray(geoCodedList) && geoCodedList.length > 0 && (
+                                geoCodedList.map(
+                                    (item, index) => {
+                                        const { name, country, state, lat, lon } = item;
+                                        return (
+                                            <li
+                                                key={index}
+                                                onMouseEnter={() => setHoveredIndex(index)}
+                                                className={`py-3 px-2 text-sm rounded-sm cursor-default ${hoveredIndex === index ? "bg-accent" : ""
+                                                    }`}
+                                                onClick={() => {
+                                                    getClickedCoords(lat, lon);
+                                                }}
+                                            >
+                                                <p className="text">
+                                                    {name}, {state ? `${state},` : ""} {country}
+                                                </p>
+                                            </li>
+                                        );
+                                    }
+                                )
+                            )}
                         </ul>
                     </Command>
                 </DialogContent>

@@ -9,8 +9,6 @@ import { UvProgress } from "../components/UvProgress";
 function UvIndex() {
     const { uvIndex } = useGlobalContext();
 
-    console.log({ uvIndex })
-
     if (!uvIndex || !uvIndex.daily) {
         return <Skeleton className="h-[12rem] w-full" />;
     }

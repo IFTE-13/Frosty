@@ -61,16 +61,13 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <footer className="py-4 flex justify-center pb-8">
-        <p className="footer-text text-sm flex items-center gap-1">
-          Made by
-
+      <footer className="py-4 flex justify-start pb-8">
+        <p className="footer-text text-sm flex items-start gap-1">
           <a
-            href="https://thecodedealer.com"
+            href=""
             target="_blank"
-            className=" text-green-300 font-bold"
           >
-            TheCodeDealer
+            Pixelize@2024
           </a>
         </p>
       </footer>

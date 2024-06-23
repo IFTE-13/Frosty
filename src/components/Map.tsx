@@ -4,7 +4,12 @@ import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useGlobalContext } from "@/context/globalContext";
 
-function FlyToActiveCity({ activeCityCords }) {
+interface Coordinates {
+  lat: number;
+  lon: number;
+}
+
+function FlyToActiveCity({ activeCityCords }: { activeCityCords: Coordinates | undefined }) {
     const map = useMap();
 
     useEffect(() => {
@@ -28,7 +33,7 @@ function FlyToActiveCity({ activeCityCords }) {
 function Map() {
     const { forecast } = useGlobalContext();
 
-    const activeCityCords = forecast?.coord;
+    const activeCityCords = forecast?.coord as Coordinates | undefined;
 
     if (!forecast || !forecast.coord || !activeCityCords) {
         return (
