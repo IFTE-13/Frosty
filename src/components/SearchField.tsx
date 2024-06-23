@@ -54,7 +54,7 @@ function SearchField() {
                             {geoCodedList && geoCodedList.length === 0 && (
                                 <CommandEmpty>No results found.</CommandEmpty>
                             )}
-                            <CommandGroup heading="Suggestions">
+                            <p className="p-2 text-sm text-muted-foreground">Suggestions</p>
                             {Array.isArray(geoCodedList) && geoCodedList.length > 0 && (
                                 geoCodedList.map(
                                     (item, index) => {
@@ -77,7 +77,6 @@ function SearchField() {
                                     }
                                 )
                             )}
-                            </CommandGroup>
                         </ul>
                         </CommandList>
                     </Command>

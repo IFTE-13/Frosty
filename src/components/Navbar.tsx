@@ -1,16 +1,16 @@
 "use client"
 
 import React from 'react';
-import { Button } from './ui/button';
-import { useRouter } from 'next/navigation';
 import { github } from '@/utils/icons';
 import TheamDropDown from './TheamDropDown';
 import SearchField from './SearchField';
-import { useGlobalContext } from '@/context/globalContext';
+import Shimmer from './ui/shimmer';
 
 const Navbar = () => {
-    const router = useRouter();
-    const { state } = useGlobalContext();
+
+    const handleShimmerClick = () => {
+        window.open("https://github.com/IFTE-13/Frosty", "_blank");
+    };
 
     return (
         <div className='w-full py-4 flex items-center justify-between'>
@@ -19,13 +19,7 @@ const Navbar = () => {
                 <SearchField />
                 <div className="btn-group flex items-center gap-2">
                     <TheamDropDown />
-                    <Button
-                        onClick={() => {
-                            router.push("https//github.com")
-                        }}
-                        className='source-code felx items-center gap-2'>
-                        {github} Source Code
-                    </Button>
+                    <Shimmer onClick={handleShimmerClick} logo={github} text={"Source Code"}  />
                 </div>
             </div>
         </div>

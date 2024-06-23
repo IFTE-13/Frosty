@@ -2,6 +2,7 @@ import AirPolution from "@/components/AirPolution";
 import DailyForecast from "@/components/DailyForecase";
 import FeelsLike from "@/components/FeelsLike";
 import FiveDayForecast from "@/components/FiveDayForecast";
+import { Footer } from "@/components/Footer";
 import Humidity from "@/components/Humidity";
 import Map from "@/components/Map";
 import Navbar from "@/components/Navbar";
@@ -61,16 +62,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <footer className="py-4 flex justify-start pb-8">
-        <p className="footer-text text-sm flex items-start gap-1">
-          <a
-            href=""
-            target="_blank"
-          >
-            Pixelize@2024
-          </a>
-        </p>
-      </footer>
+      <Footer />
     </main>
   );
 }
