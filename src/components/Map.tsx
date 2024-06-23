@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useGlobalContext } from "@/context/globalContext";
+import { Skeleton } from "./ui/skeleton";
 
 interface Coordinates {
   lat: number;
@@ -36,11 +37,7 @@ function Map() {
     const activeCityCords = forecast?.coord as Coordinates | undefined;
 
     if (!forecast || !forecast.coord || !activeCityCords) {
-        return (
-            <div>
-                <h1>Loading</h1>
-            </div>
-        );
+        return <Skeleton className="h-[12rem] w-full" />;
     }
 
     return (

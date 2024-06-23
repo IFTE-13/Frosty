@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import { Button } from './ui/button'
 import { commandIcon, searchIcon } from '@/utils/icons'
-import { Command, CommandInput } from './ui/command'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandList } from './ui/command'
 import { useGlobalContext, useGlobalContextUpdate } from '@/context/globalContext'
 
 interface GeocodedItem {
@@ -18,8 +18,6 @@ interface GeocodedItem {
 function SearchField() {
     const { geoCodedList, inputValue, handleInput } = useGlobalContext();
     const { setActiveCityCords } = useGlobalContextUpdate();
-
-    console.log('geoCodedList:', geoCodedList);
 
     const [hoveredIndex, setHoveredIndex] = useState<number>(0);
 
@@ -51,12 +49,12 @@ function SearchField() {
                             value={inputValue}
                             onChangeCapture={handleInput}
                         />
+                        <CommandList>
                         <ul className='px-3 pb-2'>
-                            <p className="p-2 text-sm text-muted-foreground">Suggestions</p>
                             {geoCodedList && geoCodedList.length === 0 && (
-                                <p className="p-2 text-sm text-muted-foreground">No Results</p>
+                                <CommandEmpty>No results found.</CommandEmpty>
                             )}
-
+                            <CommandGroup heading="Suggestions">
                             {Array.isArray(geoCodedList) && geoCodedList.length > 0 && (
                                 geoCodedList.map(
                                     (item, index) => {
@@ -79,7 +77,9 @@ function SearchField() {
                                     }
                                 )
                             )}
+                            </CommandGroup>
                         </ul>
+                        </CommandList>
                     </Command>
                 </DialogContent>
             </Dialog>
