@@ -37,7 +37,7 @@ function DailyForecast() {
 
     const { main: weatherMain } = weather[0];
 
-    if (todaysForecast.length < 1) {
+    if (todaysForecast.length < 0) {
         return (
             <Skeleton className="h-[12rem] w-full col-span-full sm-2:col-span-2 md:col-span-2 xl:col-span-2" />
         );
@@ -83,7 +83,7 @@ function DailyForecast() {
                                                 key={forecast.dt_txt}
                                                 className="flex flex-col gap-4 basis-[8.5rem] cursor-grab"
                                             >
-                                                <p>
+                                                <p className=" text-gray-300">
                                                     {moment(forecast.dt_txt).format("HH:mm")}
                                                 </p>
                                                 <p>{getIcon()}</p>
