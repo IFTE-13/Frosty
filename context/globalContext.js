@@ -13,7 +13,7 @@ export const GlobalContextProvider = ({ children }) => {
     const [uvIndex, setUvIndex] = useState({});
     const [geoCodedList, setGeoCodedList] = useState(defaultLocations);
     const [inputValue, setInputValue] = useState("");
-    const [activeCityCords, setActiveCityCords] = useState([51.75201, -1.257726]);
+    const [activeCityCords, setActiveCityCords] = useState([40.4165, -3.7026]);
 
     const fetchForecast = async (lat, lon) => {
         try {
