@@ -17,18 +17,21 @@ interface GeocodedItem {
 function SearchField() {
     const { geoCodedList, inputValue, handleInput, setActiveCityCords } = useGlobalContext();
     const [hoveredIndex, setHoveredIndex] = useState<number>(0);
+    const [isDialogOpen, setDialogOpen] = useState<boolean>(false); // Control dialog state
 
     const handleCoordSelect = (lat: number, lon: number) => {
         setActiveCityCords([lat, lon]);
+        setDialogOpen(false); // Close the dialog on selection
     };
 
     return (
         <div className='search-btn'>
-            <Dialog>
+            <Dialog open={isDialogOpen} onOpenChange={setDialogOpen}>
                 <DialogTrigger asChild>
                     <Button
                         variant="outline"
                         className="border inline-flex items-center justify-center text-sm font-medium hover:dark:bg-[#131313] hover:bg-slate-100  ease-in-out duration-200"
+                        onClick={() => setDialogOpen(true)} // Open the dialog
                     >
                         {searchIcon}
                         <p className="text-sm text-muted-foreground mx-2">Search</p>
