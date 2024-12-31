@@ -15,6 +15,23 @@ export const GlobalContextProvider = ({ children }) => {
     const [inputValue, setInputValue] = useState("");
     const [activeCityCords, setActiveCityCords] = useState([40.4165, -3.7026]);
 
+    useEffect(() => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords;
+                    setActiveCityCords([latitude, longitude]); // Dynamically set the coordinates
+                },
+                (error) => {
+                    console.error(error);
+                },
+                { enableHighAccuracy: true }
+            );
+        } else {
+            console.error("Geolocation is not supported by this browser.");
+        }
+    }, []);
+
     const fetchForecast = async (lat, lon) => {
         try {
             const res = await axios.get(`api/weather?lat=${lat}&lon=${lon}`);
