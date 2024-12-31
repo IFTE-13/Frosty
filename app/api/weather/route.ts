@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json(response.data);
 
     } catch (error) {
-        console.log("Error fetching forecast data");
+        console.log(error, "Error fetching forecast data");
         return new Response("Error fetching forecast data", { status: 500 });
     }
 }

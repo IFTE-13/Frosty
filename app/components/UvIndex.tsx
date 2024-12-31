@@ -14,7 +14,7 @@ function UvIndex() {
     }
 
     const { daily } = uvIndex;
-    const { uv_index_clear_sky_max, uv_index_max } = daily;
+    const { uv_index_max } = daily;
 
     const uvIndexMax = uv_index_max[0].toFixed(0);
 

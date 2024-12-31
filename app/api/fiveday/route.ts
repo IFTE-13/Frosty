@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
 
         return NextResponse.json(dailyData);
     } catch (error) {
-        console.log("Error in getting daily data ");
+        console.log(error, "Error in getting daily data ");
         return new Response("Error in getting daily data ", { status: 500 });
     }
 }
