@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frosty - Weather App
 
-## Getting Started
+Frosty is a modern weather application that provides the latest weather forecasts and conditions. Built with Next.js, Frosty offers a sleek and user-friendly interface to keep you updated on the weather.
 
-First, run the development server:
+## 🖥️ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Current weather conditions
+- 5-day weather forecast
+- UV index, air polution, population, pressure and etc.
+- Search by city
+- Responsive design
+- Easy-to-read weather icons and data
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tech Stack
+- [**Next.js**](https://nextjs.org/): A React framework for building fast and scalable web applications.  
+- [**Tailwind CSS**](https://tailwindcss.com/): A utility-first CSS framework for rapid UI development.  
+- [**shadcn/ui**](https://ui.shadcn.dev/): A collection of pre-designed components built with Tailwind CSS and Radix.  
+- [**Moment.js**](https://momentjs.com/): A library for parsing, validating, manipulating, and formatting dates and times.  
+- [**Axios**](https://axios-http.com/): A promise-based HTTP client for making requests.  
+- [**React Leaflet**](https://react-leaflet.js.org/): A React wrapper for Leaflet to create interactive maps.
+- [**Open Weather**](https://openweathermap.org/): A comprehensive weather data services, including current, forecast, and historical weather information.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Installation
 
-## Learn More
+To get started with Frosty, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/IFTE-13/frosty.git
+   cd frosty
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies:**
 
-## Deploy on Vercel
+   ```bash
+   pnpm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Set up environment variables:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   Create a `.env` file in the root of your project and add your API key for the weather service:
+
+   ```plaintext
+   OPENWEATHER_API_KEY=your_api_key_here
+   ```
+> [!Important]
+> Get your api key from [`Open Weather`](https://openweathermap.org/).
+
+4. **Run the development server:**
+
+   ```bash
+   pnpm run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) in your browser to see the app in action.
+
+## 🤝 Contributing
+
+Contributions are welcome! If you have any suggestions or improvements, feel free to create an issue or submit a pull request.
+
+1. **Fork the repository**
+2. **Create a new branch:**
+
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. **Make your changes**
+4. **Commit your changes:**
+
+   ```bash
+   git commit -m '<type>[optional scope]: <description>'
+   ```
+
+5. **Push to the branch:**
+
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+6. **Open a pull request**
+
+## 📝 License
+
+> [!Caution]
+> This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
